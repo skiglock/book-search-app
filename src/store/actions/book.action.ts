@@ -1,21 +1,14 @@
 import { Dispatch } from "redux";
 import { bookAPI } from "../../api/book";
-import {
-  BookAction,
-  BookActionTypes,
-  EBookCategory,
-  EBookSort,
-  IBookFilters,
-} from "../../types/book";
+import { BookAction, BookActionTypes, IBookFilters } from "../../types/book";
 
-export const fetchBooks = (filters: IBookFilters) => {
-  const {
-    page = 1,
-    limit = 30,
-    category = EBookCategory.DEFAULT,
-    sort = EBookSort.DEFAULT,
-    search = "",
-  } = filters;
+export const fetchBooks = ({
+  page,
+  limit,
+  category,
+  sort,
+  search,
+}: IBookFilters) => {
   return async (dispatch: Dispatch<BookAction>) => {
     try {
       dispatch({ type: BookActionTypes.FETCH_BOOKS });

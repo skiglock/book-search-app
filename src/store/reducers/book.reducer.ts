@@ -37,5 +37,7 @@ export const bookReducer = (state = initalState, action: BookAction) => {
         loading: false,
         error: action.payload,
       };
+    default:
+      return state;
   }
 };
