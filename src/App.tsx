@@ -1,9 +1,15 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import BookFilters from "./components/BookFilters";
+import BookList from "./components/BookList";
 
-function App() {
-  return <div>Hello World!</div>;
-}
+const App: React.FC = () => {
+  return (
+    <div className="wrapper">
+      <BookFilters />
+      <BookList />
+    </div>
+  );
+};
 
 export default App;

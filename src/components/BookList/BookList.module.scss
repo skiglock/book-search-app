@@ -1,0 +1,24 @@
+.books {
+  display: grid;
+  row-gap: 20px;
+  padding: 20px;
+}
+
+@media screen and (min-width: 575px) {
+  .books {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .books {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .books {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

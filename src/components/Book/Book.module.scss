@@ -1,0 +1,29 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f3f2f1;
+  & > * + * {
+    margin-top: 10px;
+  }
+}
+
+.bookImg {
+  display: block;
+  justify-self: center;
+  width: 150px;
+  height: 180px;
+}
+
+.bookCategory {
+  color: #838383;
+}
+
+.title {
+  color: #000;
+}
+
+.author {
+  color: #838383;
+  font-weight: bold;
+}
