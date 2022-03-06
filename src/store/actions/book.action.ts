@@ -1,20 +1,22 @@
 import { Dispatch } from "redux";
 import { bookAPI } from "../../api/book";
-import { BookAction, BookActionTypes, IBookFilters } from "../../types/book";
+import {
+  BookAction,
+  BookActionTypes,
+  EBookCategory,
+  EBookSort,
+  IBookFilters,
+} from "../../types/book";
 
-export const fetchBooks = ({
-  page,
-  limit,
-  category,
-  sort,
-  search,
-}: IBookFilters) => {
+export const fetchBooks = (
+  page: number,
+  limit: number,
+  { category, sort, search }: IBookFilters
+) => {
   return async (dispatch: Dispatch<BookAction>) => {
     try {
       dispatch({ type: BookActionTypes.FETCH_BOOKS });
-      const { data } = await bookAPI.getBooks({
-        page,
-        limit,
+      const { data } = await bookAPI.getBooks(page, limit, {
         category,
         sort,
         search,
@@ -36,3 +38,22 @@ export const fetchBooks = ({
     }
   };
 };
+
+export function loadMoreBooks() {
+  return {
+    type: BookActionTypes.LOAD_MORE_BOOKS,
+  };
+}
+
+export function setBooksFilter(
+  filter: keyof IBookFilters,
+  value: string | number | EBookCategory | EBookSort
+) {
+  return {
+    type: BookActionTypes.SET_BOOKS_FILTER,
+    payload: {
+      filter,
+      value,
+    },
+  };
+}

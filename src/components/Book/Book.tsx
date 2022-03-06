@@ -20,10 +20,10 @@ const Book: React.FC<IBookProps> = (props) => {
         alt={title}
       />
       <a className={styles.bookCategory} href="/">
-        {categories}
+        {categories && categories}
       </a>
       <h4 className={styles.bookTitle}>{title}</h4>
-      <h5 className={styles.bookAuthors}>{authors.join(",")}</h5>
+      <h5 className={styles.bookAuthors}>{authors && authors.join(",")}</h5>
     </article>
   );
 };

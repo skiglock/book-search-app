@@ -1,0 +1,21 @@
+.loadMore {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.header {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.search {
+  display: flex;
+  margin-bottom: 15px;
+  button {
+    margin-left: 15px;
+  }
+}

@@ -11,9 +11,9 @@ const initalState: BookState = {
   totalItems: 0,
   loading: false,
   error: null,
+  page: 1,
+  limit: 12,
   filters: {
-    page: 1,
-    limit: 12,
     category: EBookCategory.DEFAULT,
     sort: EBookSort.DEFAULT,
     search: "",
@@ -31,7 +31,9 @@ export const bookReducer = (
       return {
         ...state,
         loading: false,
-        books: [...state.books, ...action.payload.books],
+        books: action.payload.books
+          ? [...state.books, ...action.payload.books]
+          : [],
         totalItems: action.payload.totalItems,
       };
     case BookActionTypes.FETCH_BOOKS_ERROR:
@@ -39,6 +41,24 @@ export const bookReducer = (
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case BookActionTypes.LOAD_MORE_BOOKS:
+      return {
+        ...state,
+        page:
+          state.totalItems / state.page <= state.limit
+            ? state.page
+            : state.page + 1,
+      };
+    case BookActionTypes.SET_BOOKS_FILTER:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.payload.filter]: action.payload.value,
+        },
+        page: 1,
+        books: [],
       };
     default:
       return state;

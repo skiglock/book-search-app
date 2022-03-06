@@ -11,9 +11,9 @@ const BookList: React.FC<IBookListProps> = ({ books }) => {
   return (
     <div className={styles.books}>
       {books &&
-        books.map((book) => (
+        books.map((book, key) => (
           <Book
-            key={book.id}
+            key={`${book.id}_${key}`}
             title={book.volumeInfo.title}
             categories={book.volumeInfo.categories}
             img={book.volumeInfo.imageLinks?.thumbnail}
