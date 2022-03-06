@@ -20,7 +20,10 @@ const initalState: BookState = {
   },
 };
 
-export const bookReducer = (state = initalState, action: BookAction) => {
+export const bookReducer = (
+  state = initalState,
+  action: BookAction
+): BookState => {
   switch (action.type) {
     case BookActionTypes.FETCH_BOOKS:
       return { ...state, loading: true };

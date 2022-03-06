@@ -44,7 +44,7 @@ export interface BookState {
   books: IBook[];
   totalItems: number;
   loading: boolean;
-  error: null;
+  error: string | null;
   filters: IBookFilters;
 }
 

@@ -19,13 +19,15 @@ export const fetchBooks = ({
         sort,
         search,
       });
-      dispatch({
-        type: BookActionTypes.FETCH_BOOKS_SUCCESS,
-        payload: {
-          books: data.items,
-          totalItems: data.totalItems,
-        },
-      });
+      setTimeout(() => {
+        dispatch({
+          type: BookActionTypes.FETCH_BOOKS_SUCCESS,
+          payload: {
+            books: data.items,
+            totalItems: data.totalItems,
+          },
+        });
+      }, 1200);
     } catch (e) {
       dispatch({
         type: BookActionTypes.FETCH_BOOKS_ERROR,

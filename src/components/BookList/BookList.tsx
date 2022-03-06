@@ -16,7 +16,7 @@ const BookList: React.FC<IBookListProps> = ({ books }) => {
             key={book.id}
             title={book.volumeInfo.title}
             categories={book.volumeInfo.categories}
-            img={book.volumeInfo.imageLinks.thumbnail}
+            img={book.volumeInfo.imageLinks?.thumbnail}
             authors={book.volumeInfo.authors}
           />
         ))}
